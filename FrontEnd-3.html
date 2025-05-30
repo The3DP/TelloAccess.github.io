@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tello Drone Web Controller</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 40px; }
+    button {
+      margin: 10px;
+      padding: 15px 25px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tello Drone Web Controller</h1>
 
+  <button onclick="send('takeoff')">Take Off</button>
+  <button onclick="send('land')">Land</button><br>
+
+  <button onclick="send('up')">Up</button>
+  <button onclick="send('down')">Down</button><br>
+
+  <button onclick="send('left')">Left</button>
+  <button onclick="send('right')">Right</button><br>
+
+  <button onclick="send('forward')">Forward</button>
+  <button onclick="send('back')">Back</button><br>
+
+  <button onclick="send('cw')">Rotate CW</button>
+  <button onclick="send('ccw')">Rotate CCW</button><br>
+
+  <button onclick="send('battery')">Battery?</button>
+
+  <p id="response" style="margin-top: 20px; font-size: 18px;"></p>
+
+  <script>
+    async function send(command) {
+      const responseBox = document.getElementById("response");
+      responseBox.textContent = "Sending...";
+
+      const res = await fetch("http://localhost:5000/command", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ command })
+      });
+
+      const result = await res.json();
+      responseBox.textContent = result.response;
+    }
+  </script>
+</body>
+</html>
