@@ -14,7 +14,7 @@ d73928430@gmail.com
 
 - The3DP
 ##
-TIPS ON HOW TO OPERATE
+TIPS ON HOW TO OPERATE:
 ##
 Operatng the DJI Tello drone can be a lot of fun, whether you're a beginner or an experienced drone pilot. Here are some tips to help you get the most out of your Tello drone experience:
 
