@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tello Spiral Flight</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 40px; }
+    button {
+      font-size: 20px;
+      padding: 15px 30px;
+      background: #007acc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #005b9f;
+    }
+    #response {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tello Spiral Flight</h1>
+  <button onclick="startSpiral()">Start Spiral Flight</button>
+  <p id="response"></p>
 
+  <script>
+    async function startSpiral() {
+      const resEl = document.getElementById('response');
+      resEl.textContent = 'Starting spiral...';
+
+      const res = await fetch('http://localhost:5000/spiral', {
+        method: 'POST'
+      });
+
+      const data = await res.json();
+      resEl.textContent = data.response;
+    }
+  </script>
+</body>
+</html>
