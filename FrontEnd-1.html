@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Drone Control Panel</title>
+</head>
+<body>
+  <h1>Drone Control Panel</h1>
+  <button onclick="sendCommand('takeoff')">Take Off</button>
+  <button onclick="sendCommand('land')">Land</button>
+  <button onclick="sendCommand('up')">Move Up</button>
+  <button onclick="sendCommand('down')">Move Down</button>
+  <button onclick="sendCommand('forward')">Move Forward</button>
+  <button onclick="sendCommand('rotate_cw')">Rotate CW</button>
+  <button onclick="sendCommand('rotate_ccw')">Rotate CCW</button>
+
+  <script>
+    function sendCommand(command) {
+      fetch(`http://localhost:5000/${command}`, { method: 'POST' })
+        .then(response => response.text())
+        .then(data => alert(data))
+        .catch(err => alert('Error: ' + err));
+    }
+  </script>
+</body>
+</html>
