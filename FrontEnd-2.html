@@ -1,1 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tello Drone Controller</title>
+</head>
+<body>
+  <h1>Tello Drone Controller</h1>
+  <button onclick="sendCommand('command')">Enter SDK Mode</button>
+  <button onclick="sendCommand('takeoff')">Take Off</button>
+  <button onclick="sendCommand('land')">Land</button>
+  <button onclick="sendCommand('battery?')">Check Battery</button>
 
+  <script>
+    function sendCommand(cmd) {
+      fetch(`http://localhost:5000/send?command=${cmd}`, {
+        method: 'GET'
+      })
+      .then(res => res.text())
+      .then(data => alert('Response: ' + data))
+      .catch(err => alert('Error: ' + err));
+    }
+  </script>
+</body>
+</html>
