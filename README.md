@@ -86,3 +86,5 @@ App Issues: If the app crashes or behaves oddly, try restarting your device or r
 Programmed Movements: The Tello SDK (Software Development Kit) allows you to program the drone for advanced maneuvers and custom flight paths using Python or other programming languages. Experiment with these features once you're comfortable with basic control.
 
 Gesture Control: Some versions of the app support basic gesture controls. Use your hand to make the drone take off, land, or take photos, which is fun and adds an extra layer of interaction.
+
+![100% Complete](https://img.shields.io/badge/Progress-100%25-darkgreen)
