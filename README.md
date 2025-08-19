@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center">🚁 TelloAccess</h1>
+  <h1 align="center">TelloAccess</h1>
   <p align="center">A series of runs and tests developed for the DJI Tello Drone.</p>
 </p>
 
@@ -9,6 +9,7 @@
 
 - Terminal (Windows / macOS)
 - Raspberry Pi (signal strength dependent)
+- [Or this site.](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default)
 
 ---
 
