@@ -1,0 +1,30 @@
+## For Terminal
+
+from djitellopy import Tello
+import cv2
+
+# Initialize Tello
+tello = Tello()
+tello.connect()
+
+# Start video stream
+tello.streamon()
+
+try:
+    while True:
+        # Get the video frame from Tello
+        frame = tello.get_frame_read().frame
+
+        # Display the video feed
+        cv2.imshow("Tello Camera Feed", frame)
+
+        # Press 'q' to quit
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+except KeyboardInterrupt:
+    pass
+finally:
+    # Cleanup
+    cv2.destroyAllWindows()
+    tello.streamoff()
+    tello.end()
